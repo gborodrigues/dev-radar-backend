@@ -1,9 +1,12 @@
 const { Router } = require('express');
+const DevController = require('./controllers/DevController');
+const SearchController = require('./controllers/SearchController')
 
 const routes = Router();
 
-routes.post('/devs', (req, res) => {
-  const { github_username } =  req.body;
-});
+routes.get('/devs', DevController.index);
+routes.post('/devs', DevController.store);
+
+routes.get('/search', SearchController.index)
 
 module.exports = routes;
